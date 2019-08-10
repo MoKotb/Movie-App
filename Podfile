@@ -7,5 +7,6 @@ target 'Movie App' do
 
   pod 'Alamofire'
   pod 'SwiftyJSON'
-
+  pod 'AlamofireImage'
+  
 end

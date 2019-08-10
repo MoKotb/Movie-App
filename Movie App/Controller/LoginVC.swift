@@ -40,7 +40,7 @@ class LoginVC: UIViewController {
             if success {
                 AuthService.instance.userLogin(username: username, password: password, completion: { (success) in
                     if success {
-                        
+                        self.presentMain()
                     }else{
                         self.showMessage(title: "Try Again", message: "Invalid username and/or password")
                     }
@@ -50,6 +50,11 @@ class LoginVC: UIViewController {
             }
             self.endConnection()
         }
+    }
+    
+    private func presentMain(){
+        guard let tabbar = storyboard?.instantiateViewController(withIdentifier: MAIN_TAB_BAR_IDENTIFIER) else { return }
+        present(tabbar, animated: true, completion: nil)
     }
     
     private func prepareToConnect(){

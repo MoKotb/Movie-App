@@ -6,6 +6,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if AuthService.instance.isLoggedIn{
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
+            let tabbar = mainStoryboard.instantiateViewController(withIdentifier: MAIN_TAB_BAR_IDENTIFIER)
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = tabbar
+            self.window?.makeKeyAndVisible()
+        }
         return true
     }
 

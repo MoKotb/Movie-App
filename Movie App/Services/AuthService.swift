@@ -3,7 +3,6 @@ import Alamofire
 import SwiftyJSON
 
 class AuthService {
-    
     static let instance = AuthService()
     private let userDefaults = UserDefaults.standard
     

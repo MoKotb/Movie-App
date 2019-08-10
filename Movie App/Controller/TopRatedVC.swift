@@ -55,6 +55,7 @@ extension TopRatedVC: UICollectionViewDelegate , UICollectionViewDataSource , UI
             let movie = moviesList[indexPath.row]
             DataService.instance.downloadImages(imageURl: movie.poster) { (image, success) in
                 if success {
+                    movie.setMovieImage(image: image!)
                     cell.configureCell(image: image!)
                 }
             }

@@ -9,6 +9,7 @@ class Movie{
     public private(set) var overview:String!
     public private(set) var releaseDate:String!
     public private(set) var average:Float!
+    private var image:UIImage!
     
     init(){}
     
@@ -41,5 +42,13 @@ class Movie{
             debugPrint("Movie.parseTopRatedMovies() \(error.localizedDescription)")
         }
         return moviesList
+    }
+    
+    func setMovieImage(image:UIImage){
+        self.image = image
+    }
+    
+    func getMovieImage() -> UIImage{
+        return image
     }
 }

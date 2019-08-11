@@ -40,7 +40,7 @@ class LoginVC: UIViewController {
             if success {
                 AuthService.instance.userLogin(username: username, password: password, completion: { (success) in
                     if success {
-                        self.presentMain()
+                        self.createUserSession()
                     }else{
                         self.showMessage(title: "Try Again", message: "Invalid username and/or password")
                     }
@@ -49,6 +49,16 @@ class LoginVC: UIViewController {
                 self.showMessage(title: "Oops", message: "Please Try Again Later")
             }
             self.endConnection()
+        }
+    }
+    
+    private func createUserSession(){
+        AuthService.instance.createSession { (success) in
+            if success {
+                self.presentMain()
+            }else{
+                self.showMessage(title: "Oops", message: "Can't Create Session")
+            }
         }
     }
     

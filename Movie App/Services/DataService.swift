@@ -31,4 +31,19 @@ class DataService {
             completion(image,true)
         }
     }
+    
+    func getAccountData(completion:@escaping (_ user:User,_ error:Error?)->()){
+        var user = User()
+        let url = "\(ACCOUNT_URL)\(REQUEST_SESSION_ID_KEY)=\(AuthService.instance.sessionID)"
+        Alamofire.request(url).responseJSON { (response) in
+            if response.result.error == nil {
+                guard let data = response.data else { return }
+                user = user.parseUser(data: data)
+                completion(user,nil)
+            }else{
+                debugPrint("DataService.getAccountData() \(response.result.error as Any)")
+                completion(user,response.result.error)
+            }
+        }
+    }
 }

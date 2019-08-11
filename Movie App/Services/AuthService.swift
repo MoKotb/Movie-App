@@ -24,6 +24,15 @@ class AuthService {
         }
     }
     
+    var sessionID: String{
+        get{
+            return userDefaults.value(forKey: SESSION_ID_KEY) as! String
+        }
+        set{
+            userDefaults.set(newValue, forKey: SESSION_ID_KEY)
+        }
+    }
+    
     func createRequestToken(completion:@escaping CompletionHandler){
         Alamofire.request(REQUEST_TOKEN_URL).responseJSON { (response) in
             if response.result.error == nil {
@@ -52,7 +61,6 @@ class AuthService {
                 do{
                     let json = try JSON(data:data)
                     if json["success"].boolValue {
-                        self.isLoggedIn = true
                         completion(true)
                     }else{
                         completion(false)
@@ -66,5 +74,37 @@ class AuthService {
                 completion(false)
             }
         }
+    }
+    
+    func createSession(completion:@escaping CompletionHandler){
+        let header = ["Content-Type":"application/json"]
+        let body:[String:Any] = [REQUEST_TOKEN_KEY:self.authToken]
+        Alamofire.request(REQUEST_SESSION_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            if response.result.error == nil {
+                guard let data = response.data else { return }
+                do{
+                    let json = try JSON(data:data)
+                    if json["success"].boolValue {
+                        self.sessionID = json[REQUEST_SESSION_ID_KEY].stringValue
+                        self.isLoggedIn = true
+                        completion(true)
+                    }else{
+                        completion(false)
+                    }
+                }catch let error {
+                    debugPrint("AuthService.createSession() \(error.localizedDescription)")
+                    completion(false)
+                }
+            }else{
+                debugPrint("AuthService.createSession() \(response.result.error as Any)")
+                completion(false)
+            }
+        }
+    }
+    
+    func clearUserData(){
+        self.authToken = ""
+        self.sessionID = ""
+        self.isLoggedIn = false
     }
 }

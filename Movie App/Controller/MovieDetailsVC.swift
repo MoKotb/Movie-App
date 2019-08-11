@@ -2,7 +2,6 @@ import UIKit
 
 class MovieDetailsVC: UIViewController {
     
-    @IBOutlet weak var headerTitle: UILabel!
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var movieTitleText: UILabel!
     @IBOutlet weak var movieReleaseDateText: UILabel!
@@ -21,7 +20,7 @@ class MovieDetailsVC: UIViewController {
     }
     
     private func setMovieData(){
-        headerTitle.text = movieDetails.title
+        navigationController?.topViewController?.title = movieDetails.title
         movieTitleText.text = movieDetails.title
         movieReleaseDateText.text = "Release Date: \(movieDetails.releaseDate ?? "")"
         movieAverageText.text = "Average: \(movieDetails.average ?? 0)"
@@ -30,6 +29,6 @@ class MovieDetailsVC: UIViewController {
     }
     
     @IBAction func onClosePressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
 }

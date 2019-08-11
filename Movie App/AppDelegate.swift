@@ -9,7 +9,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let openVC:UIViewController!
-        print(AuthService.instance.isLoggedIn)
         if AuthService.instance.isLoggedIn{
             openVC = mainStoryboard.instantiateViewController(withIdentifier: MAIN_TAB_BAR_IDENTIFIER)
         }else{

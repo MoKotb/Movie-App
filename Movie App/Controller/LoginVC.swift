@@ -64,7 +64,7 @@ class LoginVC: UIViewController {
     
     private func presentMain(){
         guard let tabbar = storyboard?.instantiateViewController(withIdentifier: MAIN_TAB_BAR_IDENTIFIER) else { return }
-        present(tabbar, animated: true, completion: nil)
+        presentDetails(tabbar)
     }
     
     private func prepareToConnect(){

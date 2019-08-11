@@ -24,6 +24,7 @@
 		D1B7648C22FEAB8A00DBEF17 /* TopRatedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B7648B22FEAB8A00DBEF17 /* TopRatedCell.swift */; };
 		D1B7648E22FEB33500DBEF17 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B7648D22FEB33500DBEF17 /* Movie.swift */; };
 		D1E56EC522FF9CB100E22FA3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E56EC422FF9CB100E22FA3 /* User.swift */; };
+		D1E56EC822FFA8CA00E22FA3 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E56EC722FFA8C900E22FA3 /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		D1B7648B22FEAB8A00DBEF17 /* TopRatedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedCell.swift; sourceTree = "<group>"; };
 		D1B7648D22FEB33500DBEF17 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		D1E56EC422FF9CB100E22FA3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D1E56EC722FFA8C900E22FA3 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			children = (
 				D1B4C31E22FE64E600F4BE4D /* Utilities */,
 				D1B4C31D22FE64DA00F4BE4D /* Services */,
+				D1E56EC622FFA8A600E22FA3 /* Extensions */,
 				D1B4C31C22FE64D100F4BE4D /* Model */,
 				D1B4C31B22FE64C700F4BE4D /* View */,
 				D1B4C31A22FE64B500F4BE4D /* Controller */,
@@ -166,6 +169,14 @@
 				D1B7648B22FEAB8A00DBEF17 /* TopRatedCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		D1E56EC622FFA8A600E22FA3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D1E56EC722FFA8C900E22FA3 /* UIViewControllerExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		DD2E4EB15C93B93E66FFE6F5 /* Pods */ = {
@@ -300,6 +311,7 @@
 				D1B7648A22FE9DCF00DBEF17 /* AccountVC.swift in Sources */,
 				D1B7647E22FE698600DBEF17 /* AuthService.swift in Sources */,
 				D1B7648022FE69C500DBEF17 /* DataService.swift in Sources */,
+				D1E56EC822FFA8CA00E22FA3 /* UIViewControllerExtension.swift in Sources */,
 				D1B7648622FE9D7900DBEF17 /* TopRatedVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

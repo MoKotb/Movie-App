@@ -69,7 +69,7 @@ extension TopRatedVC: UICollectionViewDelegate , UICollectionViewDataSource , UI
         guard let movieDetailsVC = storyboard?.instantiateViewController(withIdentifier: MOVIE_DETAILS_VC_IDENTIFIER) as? MovieDetailsVC else { return }
         let movie = moviesList[indexPath.row]
         movieDetailsVC.initData(movie: movie)
-        present(movieDetailsVC, animated: true, completion: nil)
+        navigationController?.pushViewController(movieDetailsVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

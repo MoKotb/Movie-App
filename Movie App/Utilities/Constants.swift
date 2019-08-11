@@ -15,6 +15,7 @@ let USERNAME_KEY = "username"
 let PASSWORD_KEY = "password"
 let REQUEST_TOKEN_KEY = "request_token"
 let REQUEST_SESSION_ID_KEY = "session_id"
+
 //URLs
 let BASE_URL = "https://api.themoviedb.org/3/"
 let REQUEST_TOKEN_URL = "\(BASE_URL)authentication/token/new?\(API_KEY)=\(API_KEY_VALUE)"
